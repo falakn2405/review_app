@@ -17,14 +17,16 @@ const Tab = createMaterialBottomTabNavigator();
 const MainTabScreen = () => (
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor="#e91e63"
-      barStyle={{ backgroundColor: 'lightblue' }}
+      activeColor="#fff"
+      inactiveColor="#3e2465"
+    //   barStyle={{ backgroundColor: '#009387' }}
     >
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
+          tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
@@ -35,6 +37,7 @@ const MainTabScreen = () => (
         component={DetailsStackScreen}
         options={{
           tabBarLabel: 'Updates',
+          tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
@@ -45,6 +48,7 @@ const MainTabScreen = () => (
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
+          tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
@@ -55,6 +59,7 @@ const MainTabScreen = () => (
         component={ExploreScreen}
         options={{
           tabBarLabel: 'Explore',
+          tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="compass" color={color} size={26} />
           ),
@@ -82,7 +87,7 @@ const HomeStackScreen = ({navigation}) => (
 const DetailsStackScreen = ({navigation}) => ( 
     <DetailsStack.Navigator screenOptions={{
       headerStyle: {
-        backgroundColor: '#009387',
+        backgroundColor: '#1f65ff',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
