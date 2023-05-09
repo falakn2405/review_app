@@ -1,31 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import * as Font from 'expo-font';
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+
+import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
+
+const HomeStack = createNativeStackNavigator();
+const DetailsStack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const HomeStackScreen = ({navigation}) => (
+  <HomeStack.Navigator screenOptions={{
+    headerStyle: {
+      backgroundColor: '#009387',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold'
+    }
+  }}>
+    <HomeStack.Screen name='Home' component={HomeScreen}/>
+  </HomeStack.Navigator>
+);
+
+const DetailsStackScreen = ({navigation}) => ( 
+  <DetailsStack.Navigator screenOptions={{
+    headerStyle: {
+      backgroundColor: '#009387',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold'
+    }
+  }}>
+    <DetailsStack.Screen name='Details' component={DetailsScreen}/>
+  </DetailsStack.Navigator>
+);
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={{backgroundColor: 'red', flex: 0.15}}>
-        <Text style={{marginTop: 20, fontSize: 32, textAlign: 'center', verticalAlign: 'middle'}}>Spectacles</Text>
-        <Text style={{fontSize: 16, textAlign: 'center', verticalAlign: 'middle'}}>Review Mobile App</Text>
-      </View>
-      <View style={{backgroundColor: 'beigo', flex: 0.55}}>
-        <Text style={{marginTop: 25, padding: 30, backgroundColor: 'darkgrey', fontSize: 24}}>Home</Text>
-        <Text style={{marginTop: 25, padding: 30, backgroundColor: 'darkgrey', fontSize: 24}}>About</Text>
-        <Text style={{marginTop: 25, padding: 30, backgroundColor: 'darkgrey', fontSize: 24}}>Review</Text>
-      </View>
-      <View style={{backgroundColor: 'beigo', flex: 0.30}}>
-        <Text style={{marginTop: 20, padding: 17, backgroundColor: 'grey', textAlign: 'center', fontSize: 20}}>LogIn</Text>
-        <Text style={{marginTop: 20, padding: 17, backgroundColor: 'grey', textAlign: 'center', fontSize: 20}}>SignUp</Text>
-      </View>
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Details" component={DetailsStackScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-
+export default App;
