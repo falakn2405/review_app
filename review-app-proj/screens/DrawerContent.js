@@ -4,6 +4,7 @@ import { Avatar, Title, Caption, Paragraph, Drawer,
     Text, TouchableRipple, Switch } from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MainTabScreen from './MainTabScreen';
 
 export function DrawerContent(props) {
@@ -53,8 +54,8 @@ export function DrawerContent(props) {
                         />
                         <DrawerItem
                             icon={({color, size}) => (
-                                <MaterialCommunityIcons
-                                    name='application-settings-outline'
+                                <MaterialIcons
+                                    name='settings-applications'
                                     color={color}
                                     size={size}
                                 />
