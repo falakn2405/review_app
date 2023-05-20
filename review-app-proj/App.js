@@ -13,11 +13,11 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStackScreen/>
-      {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+      {/* <RootStackScreen/> */}
+      <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="Review-App" component={MainTabScreen} />
         
-      </Drawer.Navigator> */}
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

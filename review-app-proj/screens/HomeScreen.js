@@ -1,25 +1,27 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { useState } from "react";
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { globalStyles } from "../styles/global";
 
 const HomeScreen = ({navigation}) => {
-    return (
-      <View style={styles.container}>
-        <Text>Home Screen</Text>
-        <Button 
-          title="Go to deatils screen"
-          onPress={() => navigation.navigate("Details")}
-        />
-  
-      </View>
-    );
+  const [reviews, setReviews] = useState([
+    { title: 'Zelda Breath of Fresh Air', rating: 5, body: 'lorem ipsum', key: 1 },
+    { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: 2 },
+    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: 3 },
+  ]);
+
+  return (
+    <View style={globalStyles.container}>
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => navigation.navigate('Details', item)}>
+            <Text style={globalStyles.titleText}>{ item.title }</Text>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});
