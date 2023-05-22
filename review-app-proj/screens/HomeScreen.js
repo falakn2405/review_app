@@ -2,13 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { globalStyles } from "../styles/global";
+import Card from "../shared/card";
 
 const HomeScreen = ({navigation}) => {
   const image = {uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTARvSZCdShxkTFKUMXQgSfK71yBpDBAHX1BuZYuI2BMxhr47lFJRtrxsVlSnFIXf-v1p0&usqp=CAU'};
   const [reviews, setReviews] = useState([
-    { title: 'Zelda Breath of Fresh Air', rating: 5, body: 'lorem ipsum', key: 1 },
-    { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: 2 },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: 3 },
+    { title: 'Wayfarer Sunglasses', rating: 5, body: 'lorem ipsum', key: 1 },
+    { title: 'Clubmaster Sunglasses', rating: 4, body: 'lorem ipsum', key: 2 },
+    { title: 'Cat eye Sunglasses', rating: 3, body: 'lorem ipsum', key: 3 },
+    { title: 'Coach Sunglasses', rating: 4, body: 'lorem ipsum', key: 4 },
+    { title: 'Wraparound Sunglasses', rating: 4, body: 'lorem ipsum', key: 5 },
   ]);
 
   return (
@@ -18,7 +21,9 @@ const HomeScreen = ({navigation}) => {
           data={reviews}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate("Details", item)}>
-              <Text style={globalStyles.titleText}>{ item.title }</Text>
+              <Card>
+                <Text style={globalStyles.titleText}>{ item.title }</Text>
+              </Card>
             </TouchableOpacity>
           )}
         />

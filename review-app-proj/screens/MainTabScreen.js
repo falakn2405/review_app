@@ -10,6 +10,7 @@ import DetailsScreen from './DetailsScreen';
 import ProfileScreen from './ProfileScreen';
 import ExploreScreen from './ExploreScreen';
 import SplashScreen from './SplashScreen';
+import { Drawer } from 'react-native-paper';
 
 const SplashStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -79,7 +80,9 @@ const MainTabScreen = () => (
 export default MainTabScreen;
 
 const SplashStackScreen = ({navigation}) => (
-  <SplashStack.Navigator>
+  <SplashStack.Navigator screenOptions={{
+    headerShown: false,
+  }}>
     <HomeStack.Screen name='Splash' component={SplashScreen} />
   </SplashStack.Navigator>
 );

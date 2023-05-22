@@ -44,13 +44,13 @@ export function DrawerContent(props) {
                         <DrawerItem
                             icon={({color, size}) => (
                                 <MaterialCommunityIcons
-                                    name='account-outline'
+                                    name='information-outline'
                                     color={color}
                                     size={size}
                                 />
                             )}
-                            label="Profile"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            label="About"
+                            onPress={() => {props.navigation.navigate('Explore')}}
                         />
                         <DrawerItem
                             icon={({color, size}) => (

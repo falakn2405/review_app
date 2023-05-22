@@ -13,7 +13,7 @@ const DetailsScreen = ({ navigation }) => {
   return (
     <View style={globalStyles.container}>
       <ImageBackground  source={image} resizeMode="stretch" style={globalStyles.image}>
-        <Text style={globalStyles.list}>Hello </Text>
+        
         {/* <Text>title: {JSON.stringify(title)}</Text>
         <Text>body: {JSON.stringify(body)}</Text>
         <Text>rating: {JSON.stringify(rating)}</Text> */}

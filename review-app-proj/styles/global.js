@@ -9,7 +9,8 @@ export const globalStyles = StyleSheet.create({
     },
     titleText: {
         fontSize: 18,
-        color: '#333'
+        color: '#333',
+        fontWeight: 'bold',
     },
     paragraph: {
         marginVertical: 8,
@@ -19,4 +20,19 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
+    card: {
+        borderRadius: 6,
+        elevation: 3,
+        backgroundColor: `#48d1cc`,
+        shadowOffset: { width: 1, height: 1 },
+        shadowColor: '#333',
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        marginHorizontal: 4,
+        marginVertical: 8
+    },
+    cardContent: {
+        marginHorizontal: 18,
+        marginVertical: 10,
+    }
 });
