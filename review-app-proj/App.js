@@ -16,11 +16,7 @@ const App = () => {
       <RootStackScreen/>
       {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="Review-App" component={MainTabScreen} />
-<<<<<<< Updated upstream
         
-=======
-        <Drawer.Screen name="SplashScreen" component={SplashScreen} />
->>>>>>> Stashed changes
       </Drawer.Navigator> */}
     </NavigationContainer>
   );
