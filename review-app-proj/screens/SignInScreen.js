@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import { set } from 'react-native-reanimated';
+import { StatusBar } from 'expo-status-bar';
 
 const SignInScreen = ({navigation}) => {
     const [data, setData] = React.useState({
@@ -42,9 +43,12 @@ const SignInScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor='#009387' barStyle='light-conten' />
+            {/* Header */}
             <View style={styles.header}>
                 <Text style={styles.text_header}>Welcome!</Text>
             </View>
+            {/* Footer */}
             <View style={styles.footer}>
                 <Text style={styles.text_footer}>Email</Text>
                 <View style={styles.action}>
