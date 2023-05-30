@@ -5,7 +5,9 @@ import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
 
 const HomeScreen = ({navigation}) => {
+  // Background Image 
   const image = {uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTARvSZCdShxkTFKUMXQgSfK71yBpDBAHX1BuZYuI2BMxhr47lFJRtrxsVlSnFIXf-v1p0&usqp=CAU'};
+  // List of Reviews 
   const [reviews, setReviews] = useState([
     { title: 'Wayfarer Sunglasses', rating: 5, body: 'lorem ipsum', key: 1 },
     { title: 'Clubmaster Sunglasses', rating: 4, body: 'lorem ipsum', key: 2 },
@@ -17,6 +19,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={globalStyles.container}>
       <ImageBackground  source={image} resizeMode="stretch" style={globalStyles.image}>
+        {/* FlatList used to display list items */}
         <FlatList style={globalStyles.list}
           data={reviews}
           renderItem={({ item }) => (

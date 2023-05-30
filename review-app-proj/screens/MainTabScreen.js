@@ -17,6 +17,7 @@ const HomeStack = createNativeStackNavigator();
 const DetailsStack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
+// Bottom tab Navigator 
 const MainTabScreen = () => (
     <Tab.Navigator
       initialRouteName="Splash"
@@ -52,17 +53,6 @@ const MainTabScreen = () => (
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarColor: '#694fad',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
-          ),
-        }}
-      /> */}
       <Tab.Screen
         name="Explore"
         component={ExploreScreen}

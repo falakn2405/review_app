@@ -7,8 +7,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MainTabScreen from './MainTabScreen';
 
+// Drawer Navigatior 
 export function DrawerContent(props) {
-
+    // Function for Drak theme switch
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
@@ -18,6 +19,7 @@ export function DrawerContent(props) {
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
+                    {/* Show user loged in */}
                     <View style={styles.userInfoSection}>
                         <View style={{flexDirection:'row', marginTop:15}}>
                             <Avatar.Image 
