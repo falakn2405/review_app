@@ -6,12 +6,14 @@ import Feather from 'react-native-vector-icons/Feather';
 import { set } from 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
 
-const SignUpScreen = ({navigation}) => {
+const SignInScreen = ({navigation}) => {
     const [data, setData] = React.useState({
         email: '',
         password: '',
+        confirm_password: '',
         check_textInputChange: false,
-        secureTextEntry: true
+        secureTextEntry: true,
+        confirm_secureTextEntry: true
     });
     const textInputChange = (val) => {
         if(val.length != 0) {
@@ -34,10 +36,22 @@ const SignUpScreen = ({navigation}) => {
             password: val
         });
     }
+    const handleConfirmPasswordChange = (val) => {
+        setData({
+            ...data,
+            confirm_password: val
+        });
+    }
     const updateSecureTextEntry = () => {
         setData({
             ...data,
             secureTextEntry: !data.secureTextEntry
+        })
+    }
+    const updateConfirmSecureTextEntry = () => {
+        setData({
+            ...data,
+            confirm_secureTextEntry: !data.confirm_secureTextEntry
         })
     }
 
@@ -46,12 +60,10 @@ const SignUpScreen = ({navigation}) => {
             <StatusBar backgroundColor='#009387' barStyle='light-conten' />
             {/* Header */}
             <View style={styles.header}>
-                <Text style={styles.text_header}>Register!</Text>
+                <Text style={styles.text_header}>Register Now!</Text>
             </View>
             {/* Footer */}
             <View style={styles.footer}>
-
-                {/* Email tag */}
                 <Text style={styles.text_footer}>Email</Text>
                 <View style={styles.action}>
                     <FontAwesome
@@ -73,9 +85,7 @@ const SignUpScreen = ({navigation}) => {
                     />
                     : null }
                 </View>
-                
-                {/* Password tag with show and hide */}
-                <Text style={[styles.text_footer, {marginTop: 30}]}>Password</Text>
+                <Text style={[styles.text_footer, {marginTop: 35}]}>Password</Text>
                 <View style={styles.action}>
                     <Feather
                         name='lock'
@@ -105,7 +115,7 @@ const SignUpScreen = ({navigation}) => {
                         }
                     </TouchableOpacity>
                 </View>
-                <Text style={[styles.text_footer, {marginTop: 30}]}>Confirm Password</Text>
+                <Text style={[styles.text_footer, {marginTop: 35}]}>Confirm Password</Text>
                 <View style={styles.action}>
                     <Feather
                         name='lock'
@@ -113,14 +123,14 @@ const SignUpScreen = ({navigation}) => {
                         size={20}
                     />
                     <TextInput
-                        placeholder='Your Password'
-                        secureTextEntry={data.secureTextEntry ? true : false}
+                        placeholder='Confirm Your Password'
+                        secureTextEntry={data.confirm_secureTextEntry ? true : false}
                         style={styles.textInput}
                         autoCapitalize='none'
-                        onChangeText={(val)=>handlePasswordChange(val)}
+                        onChangeText={(val)=>handleConfirmPasswordChange(val)}
                     />
-                    <TouchableOpacity onPress={updateSecureTextEntry}>
-                        {data.secureTextEntry ?
+                    <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
+                        {data.confirm_secureTextEntry ?
                         <Feather 
                             name='eye-off'
                             color='grey'
@@ -136,18 +146,15 @@ const SignUpScreen = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.button}>
-                    {/* SignIn button to naviagte to home page */}
                     <LinearGradient colors={['#08d4c4', '#01ab9d']} 
                         style={styles.signIn} >
                         <Text style={[styles.textSign, {color:'#fff'}]}>
-                            Sign In</Text>
+                            Sign Up</Text>
                     </LinearGradient>
-
-                    {/* SignUp button to register account */}
-                    <TouchableOpacity onPress={()=>navigation.navigate('SignUpScreen')}
+                    <TouchableOpacity onPress={()=>navigation.goBack()}
                         style={[styles.signIn, {borderColor:'#009387', borderWidth: 1, marginTop: 15}]}
                     >
-                        <Text st={[styles.textSign, {color: '#009387'}]}>Sign Up</Text>
+                        <Text st={[styles.textSign, {color: '#009387'}]}>Sign In</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -155,12 +162,12 @@ const SignUpScreen = ({navigation}) => {
     );
 };
 
-export default SignUpScreen;
+export default SignInScreen;
 
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#009387',
+      backgroundColor: '#009387'
     },
     header: {
         flex: 1,
