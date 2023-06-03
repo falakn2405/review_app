@@ -161,10 +161,6 @@ const SignInScreen = ({navigation}) => {
                 {data.isValidPassword ? null :
                     <Text style={styles.errorMsg}>Password must be 8 characters long!</Text>
                 }
-
-                <TouchableOpacity>
-                    <Text style={{color:'#009387', marginTop:15}}>Forgot Password</Text>
-                </TouchableOpacity>
                 <View style={styles.button}>
                     <TouchableOpacity style={styles.signIn}
                         onPress={() => {loginHandle(data.username, data.password)}}> 

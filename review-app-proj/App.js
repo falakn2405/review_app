@@ -9,15 +9,11 @@ import MainTabScreen from './screens/MainTabScreen';
 import RootStackScreen from './screens/RootStackScreen';
 import { AuthContext } from './components/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import DetailsScreen from './screens/DetailsScreen';
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
-  //User is authenticated or not
-  //const [isLoading, setIsLoading] = React.useState(true);
-  //Validation of user
-  //const [userToken, setUserToken] = React.useState(null);
-
   const initialLoginState = {
     isLoading: true,
     useName: null,
@@ -61,8 +57,6 @@ const App = () => {
   //Optimization technique to speed up execution
   const authContext = React.useMemo(() => ({
     signIn: async(foundUser) => {
-      // setUserToken('signin');
-      // setIsLoading(false);
       const userToken = String(foundUser[0].userToken);
       const userName = foundUser[0].username;
       try{
@@ -71,13 +65,9 @@ const App = () => {
       } catch(e) {
         console.log(e);
       }
-      
-      //console.log('user token: ',userToken);
       dispatch({type:'LOGIN', id:userName, token:userToken});
     },
     signOut: async() => {
-      // setUserToken(null);
-      // setIsLoading(false);
       try{
         await AsyncStorage.removeItem('userToken')
       } catch(e) {
@@ -94,7 +84,6 @@ const App = () => {
   useEffect(() => {
     //Will check if user is loged in or not
     setTimeout(async() => {
-      //setIsLoading(false);
       let userToken;
       userToken = null
       try{
@@ -102,7 +91,6 @@ const App = () => {
       } catch(e) {
         console.log(e);
       }
-      //console.log('user token: ',userToken);
       dispatch({type:'RETRIEVE_TOKEN', token:userToken});
     }, 1000);
   }, []);
@@ -121,7 +109,7 @@ const App = () => {
         { loginState.userToken != null ? (
           <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
             <Drawer.Screen name="Review-App" component={MainTabScreen} />
-          
+            <Drawer.Screen name="Detail" component={DetailsScreen} />
           </Drawer.Navigator>
         ) 
       :
