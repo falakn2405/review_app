@@ -1,32 +1,40 @@
 import React from "react";
-import { View, Text, Button, ImageBackground } from 'react-native';
-import { globalStyles } from "../styles/global";
+import { View, Text, Button, ImageBackground, StyleSheet, Image } from 'react-native';
+import { globalStyles, images } from "../styles/global";
 import { useRoute } from "@react-navigation/native";
+import Card from "../shared/card";
 
 const DetailsScreen = ({ navigation }) => {
-  // const { title } = route.params;
-  // const { body } = route.params;
-  // const { rating } = route.params;
   const route = useRoute();
-  const image = {uri: 'https://www.shutterstock.com/shutterstock/photos/432952330/display_1500/stock-vector-smile-sunglasses-tropical-summer-typography-t-shirt-graphics-vectors-432952330.jpg'};
+  const { title, body, price, rating } = route.params;
+  const back = {uri: 'https://www.shutterstock.com/shutterstock/photos/432952330/display_1500/stock-vector-smile-sunglasses-tropical-summer-typography-t-shirt-graphics-vectors-432952330.jpg'};
   
   return (
     <View style={globalStyles.container}>
-      <ImageBackground  source={image} resizeMode="stretch" style={globalStyles.image}>
-        
-        {/* <Text>title: {JSON.stringify(title)}</Text>
-        <Text>body: {JSON.stringify(body)}</Text>
-        <Text>rating: {JSON.stringify(rating)}</Text> */}
-        {/* <Text>{ navigation.getParam('title') }</Text>
-        <Text>{ navigation.getParam('body') }</Text>
-        <Text>{ navigation.getParam('rating') }</Text> */}
-        {/* <Text>{route.params.title}</Text>
-        <Text>{route.params.body}</Text>
-        <Text>{route.params.rating}</Text> */}
-        <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+      <ImageBackground  source={back} resizeMode="stretch" style={globalStyles.image}>
+        <Card>
+          <Text style={globalStyles.reviewt}>{title}</Text>
+          <Text style={globalStyles.reviewb}>{body}</Text>
+          <Text style={globalStyles.reviewt}>Price: {price}</Text>
+          <View style={styles.rating}>
+            <Text>Spectacles Rating: </Text>
+            <Image source={images.rating[rating]} />
+          </View>
+        </Card>
       </ImageBackground>
     </View>
   );
 };
 
 export default DetailsScreen;
+
+const styles = StyleSheet.create({
+  rating: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#eee'
+  },
+})
