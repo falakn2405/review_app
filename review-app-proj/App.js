@@ -9,6 +9,7 @@ import MainTabScreen from './screens/MainTabScreen';
 import RootStackScreen from './screens/RootStackScreen';
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
@@ -16,8 +17,13 @@ const App = () => {
       <RootStackScreen/>
       {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="Review-App" component={MainTabScreen} />
+<<<<<<< Updated upstream
         
       </Drawer.Navigator> */}
+=======
+        {/* <Drawer.Screen name="Review-Details" component={DetailsScreen} /> */}
+      </Drawer.Navigator>
+>>>>>>> Stashed changes
     </NavigationContainer>
   );
 }
