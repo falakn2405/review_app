@@ -6,11 +6,13 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MainTabScreen from './MainTabScreen';
+import { AuthContext } from '../components/context';
 
 // Drawer Navigatior 
 export function DrawerContent(props) {
     // Function for Drak theme switch
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+    const {signOut} = React.useContext(AuthContext);
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
     }
@@ -27,7 +29,7 @@ export function DrawerContent(props) {
                                 size={50} />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
                                 <Title style={styles.title}>Falak Naz</Title>
-                                <Caption style={styles.caption}>@fn2405</Caption>
+                                <Caption style={styles.caption}>@FN2405</Caption>
                             </View>
                         </View>
                     </View>
@@ -99,7 +101,7 @@ export function DrawerContent(props) {
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={() => {signOut()}}
                 />
             </Drawer.Section>
         </View>

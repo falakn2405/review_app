@@ -11,6 +11,7 @@ import { DrawerContent } from './DrawerContent';
 const RootStack = createNativeStackNavigator();
 
 const RootStackScreen = ({navigation}) => (
+    // Calling main screen and SignIn / SignUp screens 
     <RootStack.Navigator headerMode='none'>
         <RootStack.Screen name="SplashScreen" component={SplashScreen} />
         <RootStack.Screen name="Home" component={MainTabScreen} />
