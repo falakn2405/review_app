@@ -1,15 +1,4 @@
 import React from "react";
-<<<<<<< Updated upstream
-import { View, Text, Button } from 'react-native';
-import { globalStyles } from "../styles/global";
-
-const DetailsScreen = ({ navigation }) => {
-  return (
-    <View style={globalStyles.container}>
-      <Text>{ navigation.getParam('title') }</Text>
-      <Text>{ navigation.getParam('body') }</Text>
-      <Text>{ navigation.getParam('rating') }</Text>
-=======
 import { View, Text, Button, ImageBackground, StyleSheet, Image } from 'react-native';
 import { globalStyles, images } from "../styles/global";
 import { useRoute } from "@react-navigation/native";
@@ -33,7 +22,6 @@ const DetailsScreen = ({ navigation }) => {
           </View>
         </Card>
       </ImageBackground>
->>>>>>> Stashed changes
     </View>
   );
 };

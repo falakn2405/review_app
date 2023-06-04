@@ -70,3 +70,5 @@ export const images = {
         '5': require('../assets/rating-5.png'),
     }
 };
+    }
+});
