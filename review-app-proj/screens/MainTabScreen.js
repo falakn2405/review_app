@@ -9,20 +9,28 @@ import HomeScreen from './HomeScreen';
 import DetailsScreen from './DetailsScreen';
 import ProfileScreen from './ProfileScreen';
 import ExploreScreen from './ExploreScreen';
+import SplashScreen from './SplashScreen';
+import { Drawer } from 'react-native-paper';
 
+const SplashStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
 const DetailsStack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
+// Bottom tab Navigator 
 const MainTabScreen = () => (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Splash"
       shifting={true}
       sceneAnimationEnabled={false}
       activeColor="#fff"
       inactiveColor="#dc143c"
-      barStyle={{ backgroundColor: '#009387' }}
+      barStyle={{ backgroundColor: 'grey' }}
     >
+      <Tab.Screen 
+        name="Splash"
+        component={SplashStackScreen}
+      />
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
@@ -35,24 +43,13 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Notifications"
+        name="Details"
         component={DetailsStackScreen}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Details',
           tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarColor: '#694fad',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="information" color={color} size={26} />
           ),
         }}
       />
@@ -72,6 +69,14 @@ const MainTabScreen = () => (
 
 export default MainTabScreen;
 
+const SplashStackScreen = ({navigation}) => (
+  <SplashStack.Navigator screenOptions={{
+    headerShown: false,
+  }}>
+    <HomeStack.Screen name='Splash' component={SplashScreen} />
+  </SplashStack.Navigator>
+);
+
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
       headerStyle: {
@@ -80,9 +85,11 @@ const HomeStackScreen = ({navigation}) => (
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold'
-      }
+      },
+      headerTitleAlign: 'center'
     }}>
       <HomeStack.Screen name='Home' component={HomeScreen}/>
+      <HomeStack.Screen name='Details' component={DetailsScreen}/>
     </HomeStack.Navigator>
 );
   
@@ -94,7 +101,8 @@ const DetailsStackScreen = ({navigation}) => (
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold'
-      }
+      },
+      headerTitleAlign: 'center'
     }}>
       <DetailsStack.Screen name='Details' component={DetailsScreen}/>
     </DetailsStack.Navigator>
