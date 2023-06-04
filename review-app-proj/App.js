@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,6 +8,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerContent } from './screens/DrawerContent';
 import MainTabScreen from './screens/MainTabScreen';
 import RootStackScreen from './screens/RootStackScreen';
+
+
+import HomeScreen from './screens/HomeScreen';
+import SplashScreen from './screens/SplashScreen';
+
 import { AuthContext } from './components/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DetailsScreen from './screens/DetailsScreen';
