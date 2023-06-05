@@ -15,6 +15,8 @@ const SignInScreen = ({navigation}) => {
         secureTextEntry: true,
         confirm_secureTextEntry: true
     });
+
+    // Function to handle text input change for email
     const textInputChange = (val) => {
         if(val.length != 0) {
             setData({
@@ -30,24 +32,32 @@ const SignInScreen = ({navigation}) => {
             });
         }
     }
+
+    // Function to handle password input change
     const handlePasswordChange = (val) => {
         setData({
             ...data,
             password: val
         });
     }
+
+    // Function to handle confirm password input change
     const handleConfirmPasswordChange = (val) => {
         setData({
             ...data,
             confirm_password: val
         });
     }
+
+    // Function to toggle secureTextEntry for password field
     const updateSecureTextEntry = () => {
         setData({
             ...data,
             secureTextEntry: !data.secureTextEntry
         })
     }
+
+    // Function to toggle secureTextEntry for confirm password field
     const updateConfirmSecureTextEntry = () => {
         setData({
             ...data,
@@ -57,7 +67,7 @@ const SignInScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor='#009387' barStyle='light-conten' />
+            <StatusBar backgroundColor='#009387' barStyle='light-content' />
             {/* Header */}
             <View style={styles.header}>
                 <Text style={styles.text_header}>Register Now!</Text>
@@ -146,15 +156,14 @@ const SignInScreen = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.button}>
-                    <LinearGradient colors={['#08d4c4', '#01ab9d']} 
-                        style={styles.signIn} >
+                    <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn} >
                         <Text style={[styles.textSign, {color:'#fff'}]}>
                             Sign Up</Text>
                     </LinearGradient>
                     <TouchableOpacity onPress={()=>navigation.goBack()}
                         style={[styles.signIn, {borderColor:'#009387', borderWidth: 1, marginTop: 15}]}
                     >
-                        <Text st={[styles.textSign, {color: '#009387'}]}>Sign In</Text>
+                        <Text style={[styles.textSign, {color: '#009387'}]}>Sign In</Text>
                     </TouchableOpacity>
                 </View>
             </View>
