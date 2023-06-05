@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import FlatButton from '../shared/button';
 
+// Validation schema using yup
 const ReviewSchema = yup.object({
   title: yup.string().required().min(4),
   body: yup.string().required().min(10),
@@ -38,6 +39,7 @@ const ReviewForm = ({ addReview }) => {
       >
         {(props) => (
           <View>
+            {/* Title input */}
             <TextInput
               style={globalStyles.input}
               placeholder="Review Title"
@@ -48,6 +50,7 @@ const ReviewForm = ({ addReview }) => {
             <Text style={globalStyles.errorText}>
               {props.touched.title && props.errors.title}
             </Text>
+            {/* Body input */}
             <TextInput
               multiline
               minHeight={95}
@@ -60,6 +63,7 @@ const ReviewForm = ({ addReview }) => {
             <Text style={globalStyles.errorText}>
               {props.touched.body && props.errors.body}
             </Text>
+            {/* Price input */}
             <TextInput
               style={globalStyles.input}
               placeholder="$-Price"
@@ -71,6 +75,7 @@ const ReviewForm = ({ addReview }) => {
             <Text style={globalStyles.errorText}>
               {props.touched.price && props.errors.price}
             </Text>
+            {/* Rating input */}
             <TextInput
               style={globalStyles.input}
               placeholder="Rating (1-5)"
@@ -82,6 +87,7 @@ const ReviewForm = ({ addReview }) => {
             <Text style={globalStyles.errorText}>
               {props.touched.rating && props.errors.rating}
             </Text>
+            {/* Image URL input */}
             <TextInput
               style={globalStyles.input}
               placeholder="Image URL"
@@ -92,6 +98,7 @@ const ReviewForm = ({ addReview }) => {
             <Text style={globalStyles.errorText}>
               {props.touched.imageUrl && props.errors.imageUrl}
             </Text>
+            {/* Submit button */}
             <FlatButton text="submit" onPress={props.handleSubmit} />
           </View>
         )}
