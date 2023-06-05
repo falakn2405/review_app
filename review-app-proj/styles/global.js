@@ -20,7 +20,7 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
-    card: {
+    card: { 
         borderRadius: 6,
         elevation: 3,
         backgroundColor: `#48d1cc`,
@@ -31,12 +31,51 @@ export const globalStyles = StyleSheet.create({
         marginHorizontal: 4,
         marginVertical: 8
     },
-    cardContent: {
+    cardContent: { 
         marginHorizontal: 18,
         marginVertical: 10,
+<<<<<<< Updated upstream
     }
 <<<<<<< Updated upstream
 });
 =======
+};
+>>>>>>> Stashed changes
+=======
+    },
+    reviewt: { 
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    reviewb: { 
+        fontSize: 15,
+        paddingTop: 16,
+        paddingBottom: 16
+    },
+    input: { 
+        borderWidth: 1,
+        borderColor: '#ddd',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 6,
+    },
+    errorText: { 
+        color: 'crimson',
+        fontWeight: 'bold',
+        marginBottom: 10,
+        marginTop: 6,
+        textAlign: 'center',
+    },
+});
+
+export const images = {
+    rating: { 
+        '1': require('../assets/rating-1.png'),
+        '2': require('../assets/rating-2.png'),
+        '3': require('../assets/rating-3.png'),
+        '4': require('../assets/rating-4.png'),
+        '5': require('../assets/rating-5.png'),
+    }
 };
 >>>>>>> Stashed changes
