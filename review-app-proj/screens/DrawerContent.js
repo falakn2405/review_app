@@ -5,12 +5,10 @@ import { Avatar, Title, Caption, Paragraph, Drawer,
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import MainTabScreen from './MainTabScreen';
 import { AuthContext } from '../components/context';
+import ExploreScreen from './ExploreScreen';
 
-// Drawer Navigatior 
 export function DrawerContent(props) {
-    // Function for Drak theme switch
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
     const {signOut} = React.useContext(AuthContext);
     const toggleTheme = () => {
@@ -21,7 +19,6 @@ export function DrawerContent(props) {
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
-                    {/* Show user loged in */}
                     <View style={styles.userInfoSection}>
                         <View style={{flexDirection:'row', marginTop:15}}>
                             <Avatar.Image 
@@ -59,24 +56,24 @@ export function DrawerContent(props) {
                         <DrawerItem
                             icon={({color, size}) => (
                                 <MaterialIcons
+                                    name='post-add'
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Review"
+                            onPress={() => {props.navigation.navigate('Review')}}
+                        />
+                        <DrawerItem
+                            icon={({color, size}) => (
+                                <MaterialIcons
                                     name='settings-applications'
                                     color={color}
                                     size={size}
                                 />
                             )}
                             label="Settings"
-                            onPress={() => {}}
-                        />
-                        <DrawerItem
-                            icon={({color, size}) => (
-                                <MaterialCommunityIcons
-                                    name='account-check-outline'
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
-                            label="Support"
-                            onPress={() => {}}
+                            onPress={() => {props.navigation.navigate('Setting')}}
                         />
                     </Drawer.Section>
                     <Drawer.Section>
