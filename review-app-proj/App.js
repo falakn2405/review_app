@@ -115,7 +115,6 @@ const App = () => {
         { loginState.userToken != null ? (
           <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
             <Drawer.Screen name="Review-App" component={MainTabScreen} />
-            <Drawer.Screen name="Detail" component={DetailsScreen} />
           </Drawer.Navigator>
         ) 
       :

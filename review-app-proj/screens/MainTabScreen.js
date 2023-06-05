@@ -20,17 +20,13 @@ const Tab = createMaterialBottomTabNavigator();
 // Bottom tab Navigator 
 const MainTabScreen = () => (
     <Tab.Navigator
-      initialRouteName="Splash"
+      initialRouteName="Home"
       shifting={true}
       sceneAnimationEnabled={false}
       activeColor="#fff"
       inactiveColor="#dc143c"
       barStyle={{ backgroundColor: 'grey' }}
     >
-      <Tab.Screen 
-        name="Splash"
-        component={SplashStackScreen}
-      />
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
@@ -68,14 +64,6 @@ const MainTabScreen = () => (
 );
 
 export default MainTabScreen;
-
-const SplashStackScreen = ({navigation}) => (
-  <SplashStack.Navigator screenOptions={{
-    headerShown: false,
-  }}>
-    <HomeStack.Screen name='Splash' component={SplashScreen} />
-  </SplashStack.Navigator>
-);
 
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
