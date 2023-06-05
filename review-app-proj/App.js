@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,14 +7,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerContent } from './screens/DrawerContent';
 import MainTabScreen from './screens/MainTabScreen';
 import RootStackScreen from './screens/RootStackScreen';
-
-
 import HomeScreen from './screens/HomeScreen';
-import SplashScreen from './screens/SplashScreen';
-
 import { AuthContext } from './components/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import DetailsScreen from './screens/DetailsScreen';
+import ExploreScreen from './screens/ExploreScreen';
+import SettingsScreen from './screens/SettingScreen';
+import ReviewForm from './screens/ReviewForm';
 
 const Drawer = createDrawerNavigator();
 
@@ -115,6 +112,9 @@ const App = () => {
         { loginState.userToken != null ? (
           <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
             <Drawer.Screen name="Review-App" component={MainTabScreen} />
+            <Drawer.Screen name="Review" component={ReviewForm} />
+            <Drawer.Screen name="Explore" component={ExploreScreen} />
+            <Drawer.Screen name="Setting" component={SettingsScreen} />
           </Drawer.Navigator>
         ) 
       :
