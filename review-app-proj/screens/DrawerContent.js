@@ -1,19 +1,13 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch } from 'react-native-paper';
+import { Avatar, Title, Caption, Drawer, Text, TouchableRipple, Switch } from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { AuthContext } from '../components/context';
 
 export function DrawerContent(props) {
-    const [isDarkTheme, setIsDarkTheme] = React.useState(false);
     const { signOut } = React.useContext(AuthContext);
-
-    // Function to toggle between light and dark theme
-    const toggleTheme = () => {
-        setIsDarkTheme(!isDarkTheme);
-    };
 
     return (
         <View style={{ flex: 1 }}>
@@ -63,18 +57,6 @@ export function DrawerContent(props) {
                             label="Settings"
                             onPress={() => { props.navigation.navigate('Setting') }}
                         />
-                    </Drawer.Section>
-                    {/* Drawer section for theme preference */}
-                    <Drawer.Section>
-                        <TouchableRipple onPress={() => { toggleTheme() }}>
-                            <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
-                                <View pointerEvents='none'>
-                                    {/* Toggle switch for theme */}
-                                    <Switch value={isDarkTheme} />
-                                </View>
-                            </View>
-                        </TouchableRipple>
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
