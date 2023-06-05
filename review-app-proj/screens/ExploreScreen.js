@@ -3,16 +3,22 @@ import { View, Text, ScrollView, StyleSheet } from 'react-native';
 
 const ExploreScreen = () => {
   return (
+    // ScrollView to enable scrolling when content exceeds screen height
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.background}>
+        {/* Title */}
         <Text style={styles.title}>About</Text>
+        {/* Description */}
         <Text style={styles.description}>
           Welcome to the Spectacles Review App! Whether you're a fashion enthusiast or in need of the perfect pair of
           spectacles, this app is here to help. Discover a wide range of spectacles, read reviews from other users, and
           share your own experiences.
         </Text>
+        {/* Section title */}
         <Text style={styles.sectionTitle}>Features</Text>
+        {/* Container for feature items */}
         <View style={styles.featureContainer}>
+          {/* Feature item 1 */}
           <View style={styles.featureItem}>
             <Text style={styles.featureTitle}>Browse Spectacles</Text>
             <Text style={styles.featureDescription}>
@@ -20,6 +26,7 @@ const ExploreScreen = () => {
               taste and needs.
             </Text>
           </View>
+          {/* Feature item 2 */}
           <View style={styles.featureItem}>
             <Text style={styles.featureTitle}>Read Reviews</Text>
             <Text style={styles.featureDescription}>
@@ -27,6 +34,7 @@ const ExploreScreen = () => {
               the spectacles before making a purchase decision.
             </Text>
           </View>
+          {/* Feature item 3 */}
           <View style={styles.featureItem}>
             <Text style={styles.featureTitle}>Write Reviews</Text>
             <Text style={styles.featureDescription}>
