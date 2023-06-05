@@ -18,7 +18,7 @@ const SignInScreen = ({navigation}) => {
     });
     const { signIn } = React.useContext(AuthContext);
 
-    //User input and validation
+    // Function to handle text input change for the username field
     const textInputChange = (val) => {
         if(val.trim().length >= 4) {
             setData({
@@ -36,7 +36,8 @@ const SignInScreen = ({navigation}) => {
             });
         }
     }
-    //Password input and validation
+
+    // Function to handle password input change and validation
     const handlePasswordChange = (val) => {
         if(val.trim().length >= 8) {
             setData({
@@ -52,12 +53,16 @@ const SignInScreen = ({navigation}) => {
             });
         }
     }
+
+    // Function to toggle the secureTextEntry state for the password field
     const updateSecureTextEntry = () => {
         setData({
             ...data,
             secureTextEntry: !data.secureTextEntry
         });
     }
+
+    // Function to validate the username field after it loses focus
     const handleValidUser = (val) => {
         if(val.length >= 4){
             setData({
@@ -72,12 +77,11 @@ const SignInScreen = ({navigation}) => {
         }
     }
 
-    //Check if user is present in data or not
+    // Function to handle the sign-in process
     const loginHandle = (userName, password) => {
         const foundUser = Users.filter(item => {
             return userName == item.username && password == item.password;
         });
-        //Validation for user and password
         if(data.username.length == 0 || data.password.length == 0) {
             Alert.alert('Wrong Input!', 'Username or Password field cannot be empty', [
                 {text: 'Okay'}
@@ -104,11 +108,13 @@ const SignInScreen = ({navigation}) => {
             <View style={styles.footer}>
                 <Text style={styles.text_footer}>Username</Text>
                 <View style={styles.action}>
+                    {/* Icon */}
                     <FontAwesome
                         name='user-o'
                         color='#05375a'
                         size={20}
                     />
+                    {/* Text Input */}
                     <TextInput
                         placeholder='Your Username'
                         style={styles.textInput}
@@ -116,6 +122,7 @@ const SignInScreen = ({navigation}) => {
                         onChangeText={(val)=>textInputChange(val)}
                         onEndEditing={(e) => handleValidUser(e.nativeEvent.text)}
                     />
+                    {/* Checkmark Icon (Displayed when input is valid) */}
                     {data.check_textInputChange ? 
                     <Feather 
                         name='check-circle'
@@ -124,17 +131,20 @@ const SignInScreen = ({navigation}) => {
                     />
                     : null }
                 </View>
+                {/* Error message for invalid username */}
                 {data.isValidUser ? null : 
                     <Text style={styles.errorMsg}>Username must be 4 characters long!</Text>
                 }
-
+    
                 <Text style={[styles.text_footer, {marginTop: 35}]}>Password</Text>
                 <View style={styles.action}>
+                    {/* Lock Icon */}
                     <Feather
                         name='lock'
                         color='#05375a'
                         size={20}
                     />
+                    {/* Password Input */}
                     <TextInput
                         placeholder='Your Password'
                         secureTextEntry={data.secureTextEntry ? true : false}
@@ -142,6 +152,7 @@ const SignInScreen = ({navigation}) => {
                         autoCapitalize='none'
                         onChangeText={(val)=>handlePasswordChange(val)}
                     />
+                    {/* Toggle Password Visibility Icon */}
                     <TouchableOpacity onPress={updateSecureTextEntry}>
                         {data.secureTextEntry ?
                         <Feather 
@@ -158,10 +169,12 @@ const SignInScreen = ({navigation}) => {
                         }
                     </TouchableOpacity>
                 </View>
+                {/* Error message for invalid password */}
                 {data.isValidPassword ? null :
                     <Text style={styles.errorMsg}>Password must be 8 characters long!</Text>
                 }
                 <View style={styles.button}>
+                    {/* Sign In Button */}
                     <TouchableOpacity style={styles.signIn}
                         onPress={() => {loginHandle(data.username, data.password)}}> 
                     <LinearGradient colors={['#08d4c4', '#01ab9d']} 
@@ -170,6 +183,7 @@ const SignInScreen = ({navigation}) => {
                             Sign In</Text>
                     </LinearGradient>
                     </TouchableOpacity>
+                    {/* Sign Up Button */}
                     <TouchableOpacity onPress={()=>navigation.navigate('SignUpScreen')}
                         style={[styles.signIn, {borderColor:'#009387', borderWidth: 1, marginTop: 15}]}
                     >
@@ -178,7 +192,7 @@ const SignInScreen = ({navigation}) => {
                 </View>
             </View>
         </View>
-    );
+    );    
 };
 
 export default SignInScreen;
