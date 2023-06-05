@@ -35,4 +35,8 @@ export const globalStyles = StyleSheet.create({
         marginHorizontal: 18,
         marginVertical: 10,
     }
+<<<<<<< Updated upstream
 });
+=======
+};
+>>>>>>> Stashed changes
