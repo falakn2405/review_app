@@ -1,9 +1,10 @@
+// An array of user objects
 export default Users = [
     {
         id: 1,
         email: 'admin@gmail.com',
         username: 'user1',
-        password: 'userpassword',
+        password: 'userpass',
         userToken: 'token123'
     },
     {
