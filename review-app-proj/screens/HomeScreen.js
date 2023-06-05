@@ -8,10 +8,12 @@ import Card from "../shared/card";
 import ReviewForm from "./ReviewForm";
 
 const HomeScreen = ({navigation}) => {
+  // Background image
   const image = {uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTARvSZCdShxkTFKUMXQgSfK71yBpDBAHX1BuZYuI2BMxhr47lFJRtrxsVlSnFIXf-v1p0&usqp=CAU'};
   const [modalOpen, setModalOpen] = useState(false);
 
   const [reviews, setReviews] = useState([
+    // Array of review objects
     { title: 'Costa Del Mar', rating: 5, price: '$277', body: 'In testing, we adored the crystal clear vision afforded by the Premium Polarized 580 Lenses on our test model sporting Green Polarized Mirror Glass. On bright days, the slightly amber lens provides a perfect blend of contrast and brightness reduction, with 10% light transmission.', key: 1, image: require('../images/Costa.jpg') },
     { title: 'Maui Jim Stone', rating: 3, price: '$349', body: 'It lacks the adjustable nosepiece and comes in at an even higher price, so the Fantail Pro stands a slot above. But if you love the acetate frame style in a high-end pair of sunglasses, these are hard to beat.', key: 2, image: require('../images/Maui.jpg') },
     { title: 'Smiths Wander', rating: 3, price: '$199', body: 'These sunglasses have a lightweight bio-based frame and stainless steel temples. The bridge width is 18mm, putting these shades in the category of a medium fit.', key: 3, image: require('../images/Smith.jpg') },
@@ -20,8 +22,10 @@ const HomeScreen = ({navigation}) => {
   ]);
 
   const addReview = (review) => {
+    // Assign a unique key to the new review
     review.key = Math.random().toString();
     setReviews((currentReviews) => {
+      // Add the new review to the beginning of the reviews array
       return [review, ...currentReviews];
     });
     setModalOpen(false);
@@ -33,16 +37,19 @@ const HomeScreen = ({navigation}) => {
         <Modal visible={modalOpen}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.modalContent}>
+              {/* Close icon */}
               <MaterialIcons
                 name="close"
                 size={26}
                 style={{...styles.modalToggle, ...styles.modalToggle.modalClose}}
                 onPress={() => setModalOpen(false)}
               />
+              {/* ReviewForm component */}
               <ReviewForm addReview={addReview} />
             </View>
           </TouchableWithoutFeedback>
         </Modal>
+        {/* Add icon */}
         <MaterialIcons
           name="add"
           size={26}
@@ -54,6 +61,7 @@ const HomeScreen = ({navigation}) => {
           data={reviews}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate("Details", item)}>
+              {/* Custom Card component */}
               <Card>
                 <View style={styles.cardContent}>
                   <Image source={item.image} style={styles.cardImage} />
