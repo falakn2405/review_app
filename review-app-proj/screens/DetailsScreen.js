@@ -6,13 +6,14 @@ import Card from "../shared/card";
 
 const DetailsScreen = ({ navigation }) => {
   const route = useRoute();
-  const { title, body, price, rating } = route.params;
+  const { title, body, price, rating, image } = route.params;
   const back = {uri: 'https://www.shutterstock.com/shutterstock/photos/432952330/display_1500/stock-vector-smile-sunglasses-tropical-summer-typography-t-shirt-graphics-vectors-432952330.jpg'};
   
   return (
     <View style={globalStyles.container}>
       <ImageBackground  source={back} resizeMode="stretch" style={globalStyles.image}>
         <Card>
+          <Image source={image} style={styles.image} />
           <Text style={globalStyles.reviewt}>{title}</Text>
           <Text style={globalStyles.reviewb}>{body}</Text>
           <Text style={globalStyles.reviewt}>Price: {price}</Text>
@@ -29,6 +30,11 @@ const DetailsScreen = ({ navigation }) => {
 export default DetailsScreen;
 
 const styles = StyleSheet.create({
+  image: {
+    width: 350,
+    height: 200,
+    marginBottom: 10,
+  },
   rating: {
     flexDirection: 'row',
     justifyContent: 'center',
