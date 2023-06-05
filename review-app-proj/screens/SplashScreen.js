@@ -6,25 +6,24 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const SplashScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
-            {/* Header with application logo */}
+            {/* Header */}
             <View style={styles.header}>
-                <Image source={require('../assets/logo.png')}
+                <Image
+                    source={require('../assets/logo.png')}
                     style={styles.logo1}
-                    resizeMode="stretch" />
+                    resizeMode="stretch"
+                />
             </View>
-            {/* Footer with touchable opacity to navigate to SignIn screen */}
+            {/* Footer */}
             <View style={styles.footer}>
                 <Text style={styles.title}>Stay connected with everyone</Text>
                 <Text style={styles.text}>Sign in with account</Text>
                 <View style={styles.button}>
-
+                    {/* Get Started Button */}
                     <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
-                        <LinearGradient colors={['#08d4c4', '#01ab9d']}
-                            style={styles.signIn}>
+                        <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
                             <Text>Get Started</Text>
-                            <MaterialIcons name='navigate-next'
-                                color='#fff'
-                                size={20} />
+                            <MaterialIcons name='navigate-next' color='#fff' size={20} />
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
