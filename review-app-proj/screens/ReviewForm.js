@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
+import { StyleSheet, Button, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -87,5 +87,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingBottom: 15,
         textAlign: 'center'
-    }
+    },
 })
