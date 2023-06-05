@@ -4,20 +4,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './SplashScreen';
 import SignInScreen from './SignInScreen';
 import SignUpScreen from './SignUpScreen';
-import HomeScreen from './HomeScreen';
 import MainTabScreen from './MainTabScreen';
-import { DrawerContent } from './DrawerContent';
 
+// Create a native stack navigator
 const RootStack = createNativeStackNavigator();
 
-const RootStackScreen = ({navigation}) => (
-    // Calling main screen and SignIn / SignUp screens 
-    <RootStack.Navigator headerMode='none'>
-        <RootStack.Screen name="SplashScreen" component={SplashScreen} />
-        <RootStack.Screen name="Home" component={MainTabScreen} />
-        <RootStack.Screen name="SignInScreen" component={SignInScreen} />
-        <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
-    </RootStack.Navigator>
+// Define the root stack screen component
+const RootStackScreen = ({ navigation }) => (
+  <RootStack.Navigator headerMode='none'>
+    {/* SplashScreen */}
+    <RootStack.Screen name="SplashScreen" component={SplashScreen} />
+    {/* Home */}
+    <RootStack.Screen name="Home" component={MainTabScreen} />
+    {/* SignInScreen */}
+    <RootStack.Screen name="SignInScreen" component={SignInScreen} />
+    {/* SignUpScreen */}
+    <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+  </RootStack.Navigator>
 );
 
 export default RootStackScreen;
