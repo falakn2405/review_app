@@ -2,22 +2,17 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 import HomeScreen from './HomeScreen';
 import DetailsScreen from './DetailsScreen';
-import ProfileScreen from './ProfileScreen';
+import SettingScreen from './SettingScreen';
 import ExploreScreen from './ExploreScreen';
-import SplashScreen from './SplashScreen';
 import { Drawer } from 'react-native-paper';
 
-const SplashStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
-const DetailsStack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-// Bottom tab Navigator 
 const MainTabScreen = () => (
     <Tab.Navigator
       initialRouteName="Home"
@@ -34,29 +29,29 @@ const MainTabScreen = () => (
           tabBarLabel: 'Home',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialIcons name="home" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Details"
-        component={DetailsStackScreen}
-        options={{
-          tabBarLabel: 'Details',
-          tabBarColor: '#1f65ff',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="information" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Explore"
+        name="About"
         component={ExploreScreen}
         options={{
-          tabBarLabel: 'Explore',
+          tabBarLabel: 'About',
+          tabBarColor: '#1f65ff',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="info" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Setting"
+        component={SettingScreen}
+        options={{
+          tabBarLabel: 'Setting',
           tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="compass" color={color} size={26} />
+            <MaterialIcons name="settings" color={color} size={26} />
           ),
         }}
       />
@@ -81,17 +76,3 @@ const HomeStackScreen = ({navigation}) => (
     </HomeStack.Navigator>
 );
   
-const DetailsStackScreen = ({navigation}) => ( 
-    <DetailsStack.Navigator screenOptions={{
-      headerStyle: {
-        backgroundColor: '#1f65ff',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold'
-      },
-      headerTitleAlign: 'center'
-    }}>
-      <DetailsStack.Screen name='Details' component={DetailsScreen}/>
-    </DetailsStack.Navigator>
-);
