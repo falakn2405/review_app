@@ -34,14 +34,6 @@ export const globalStyles = StyleSheet.create({
     cardContent: { 
         marginHorizontal: 18,
         marginVertical: 10,
-<<<<<<< Updated upstream
-    }
-<<<<<<< Updated upstream
-});
-=======
-};
->>>>>>> Stashed changes
-=======
     },
     reviewt: { 
         fontSize: 25,
@@ -78,4 +70,3 @@ export const images = {
         '5': require('../assets/rating-5.png'),
     }
 };
->>>>>>> Stashed changes
