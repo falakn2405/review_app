@@ -4,8 +4,11 @@ import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 const FlatButton = ({text, onPress}) => {
     return(
         <TouchableOpacity onPress={onPress}>
+            {/* Touchable area that triggers the onPress function */}
             <View style={styles.button}>
+                {/* View container for the button */}
                 <Text style={styles.buttonText}>{ text }</Text>
+                {/* Text inside the button */}
             </View>
         </TouchableOpacity> 
     );
